@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Possibility 1 - EVA Timer</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+</head>
+<body>
+    <div id="canvasContainer"></div>
+    <div class="hud">
+        <div id="status-panel" class="hud-panel show">
+            <h3>SYSTEM STATUS</h3>
+            <div class="status-item"><span class="status-label">POWER</span><span class="status-value">NOMINAL</span><div class="status-indicator"></div></div>
+            <div class="status-item"><span class="status-label">COMMS</span><span class="status-value">UPLINK</span><div class="status-indicator"></div></div>
+            <div class="status-item"><span class="status-label">THERMAL</span><span class="status-value">STABLE</span><div class="status-indicator"></div></div>
+        </div>
+        <div id="data-panel" class="hud-panel show">
+            <h3>ORBITAL PARAMETERS</h3>
+            <div class="data-grid">
+                <div class="data-item">
+                    <span class="data-label">ALTITUDE</span>
+                    <span id="altitude">...</span></div>
+                <div class="data-item">
+                    <span class="data-label">VELOCITY</span>
+                    <span id="velocity">...</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">INCLINATION</span>
+                    <span id="inclination">...</span>
+                </div>
+                <div class="data-item"><span class="data-label">EVA TIME</span><span id="evaTime">0.00s</span></div>
+            </div>
+        </div>
+
+        <div id="anomaly-panel" class="hud-panel story-panel warning">
+             <h3>ANOMALY DETECTED</h3>
+             <p>Unstable telemetry readings from Solar Array 1. Investigating...</p>
+        </div>
+        <div id="alert-panel" class="hud-panel story-panel warning">
+             <h3>CRITICAL ALERT</h3>
+             <p>Micrometeoroid impact on Solar Array 1. EVA required.</p>
+             <button id="beginEvaBtn">Acknowledge & Begin EVA</button>
+        </div>
+        <div id="objective-panel" class="hud-panel story-panel">
+             <h3>MISSION OBJECTIVE</h3>
+             <p>Astronaut is in position. Reroute power couplings to bypass damaged section.</p>
+             <button id="repairBtn">Perform Repair</button>
+        </div>
+        <div id="tether-warning-panel" class="hud-panel story-panel warning">
+             <h3>!!! WARNING !!!</h3>
+             <p>POWER SURGE DETECTED. TETHER DISCONNECTED. MMU THRUSTER MALFUNCTION!</p>
+        </div>
+        <div id="comms-lost-panel" class="hud-panel story-panel">
+             <h3>COMMUNICATIONS LOST</h3>
+             <p>Signal lost... Trajectory decaying... Last known velocity vector: <span id="last-velocity"></span></p>
+             <button id="resetSimBtn">Reset Simulation</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
