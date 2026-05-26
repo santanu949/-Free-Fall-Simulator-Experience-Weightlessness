@@ -3,7 +3,7 @@ An interactive free-fall simulator replicating the sensation of weightlessness a
 
 Features
 
-Physics-based simulation of free-fall and orbital motion
+Physics based simulation of free fall and orbital motion
 
 Intuitive controls to explore different motion scenarios
 
